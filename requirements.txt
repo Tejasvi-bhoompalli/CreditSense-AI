@@ -1,0 +1,31 @@
+# CreditSense AI - pinned to the versions verified during development.
+#
+# These pins were installed, trained against, evaluated and tested together.
+# If a wheel is unavailable for your Python version, relax the offending pin
+# (the application only relies on documented, stable APIs).
+
+# Core data stack
+numpy==2.5.4
+pandas==3.1.0
+scipy==1.18.1
+
+# Machine learning
+scikit-learn==1.9.1
+joblib==1.6.0
+
+# Explainability
+shap==0.54.1
+
+# Application and visualisation
+streamlit==1.66.1
+plotly==7.1.0
+
+# Reporting and validation
+reportlab==5.1.0
+pydantic==2.14.1
+
+# Testing
+pytest==9.1.1
+
+# PDF text verification in the test suite
+pypdf==6.21.2

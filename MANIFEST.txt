@@ -1,0 +1,84 @@
+CreditSense AI - Complete Project
+=================================
+
+Runnable Streamlit application: source, tests, dataset and trained model.
+Extract and follow HOW TO RUN below. No retraining needed.
+
+FILES (59)
+----------------------------------------
+.env.example                                                   1,378
+.git                                                              63
+.gitignore                                                       644
+AGENTS.md                                                      5,339
+METHODOLOGY.md                                                21,495
+README.md                                                     51,660
+app.py                                                         1,866
+pytest.ini                                                       219
+requirements.txt                                                 641
+.streamlit/config.toml                                           334
+artifacts/metadata/dataset_profile.json                        6,002
+artifacts/metadata/feature_schema.json                         6,983
+artifacts/metadata/global_shap_importance.json                 9,293
+artifacts/metadata/training_metadata.json                      4,412
+artifacts/metrics/evaluation_metrics.json                     52,295
+artifacts/metrics/permutation_importance.json                  4,122
+artifacts/model/model_bundle.joblib                       22,552,460
+assets/logo.svg                                                1,088
+assets/styles.css                                              9,753
+data/README.md                                                 5,807
+data/UCI_Credit_Card.csv                                   2,862,995
+pages/about.py                                                21,297
+pages/assessment_history.py                                   16,002
+pages/dashboard.py                                            16,700
+pages/dataset_explorer.py                                     22,392
+pages/explainable_ai.py                                       13,686
+pages/model_insights.py                                       20,317
+pages/reports.py                                              13,405
+pages/risk_assessment.py                                      16,923
+pages/what_if_analysis.py                                     15,779
+src/__init__.py                                                  169
+src/ai_report.py                                              14,378
+src/config.py                                                 15,806
+src/data_loader.py                                            20,600
+src/data_validation.py                                        16,058
+src/database.py                                               16,925
+src/explainability.py                                         23,256
+src/fairness.py                                                8,664
+src/predictor.py                                              12,375
+src/preprocessing.py                                           9,159
+src/recommendation.py                                          9,664
+src/report_generator.py                                       30,849
+src/risk_scoring.py                                            3,198
+src/train_model.py                                            29,744
+src/ui.py                                                     13,939
+src/utils.py                                                   6,983
+src/what_if.py                                                12,862
+tests/conftest.py                                              4,272
+tests/test_data.py                                             7,977
+tests/test_database.py                                         6,687
+tests/test_explainability.py                                   4,919
+tests/test_history_page.py                                     4,190
+tests/test_prediction.py                                       4,188
+tests/test_preprocessing.py                                    7,262
+tests/test_recommendation.py                                   3,229
+tests/test_reports.py                                          9,361
+tests/test_risk_scoring.py                                     3,098
+tests/test_train_model.py                                      8,044
+tests/test_what_if.py                                          4,836
+
+HOW TO RUN (Windows 10/11)
+--------------------------
+1. Extract this archive.
+2. Open the extracted folder in VS Code or Google Antigravity.
+3. python -m venv .venv
+   .venv\Scripts\activate        (PowerShell: .venv\Scripts\Activate.ps1)
+4. pip install -r requirements.txt
+5. streamlit run app.py
+6. Open http://localhost:8501 in your browser.
+7. python -m pytest -q           (test suite)
+
+The trained model (artifacts/model/model_bundle.joblib) and the dataset
+(data/UCI_Credit_Card.csv) are included, so retraining is not required.
+Retrain only if you want to: python -m src.train_model
+
+Generated: 2026-10-28 (timestamps normalized where invalid)

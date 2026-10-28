@@ -1,0 +1,417 @@
+/* CreditSense AI - design system
+   Palette and component styles for a calm, institutional fintech interface.
+   Most styling lives on the application's own component classes (.csa-*), which
+   are fully under our control, so a Streamlit internal change cannot break the
+   whole layout. Only light, low-risk touches are applied to Streamlit chrome. */
+
+:root {
+  --csa-navy: #101828;
+  --csa-navy-2: #172554;
+  --csa-indigo: #4f46e5;
+  --csa-blue: #3b82f6;
+  --csa-teal: #14b8a6;
+  --csa-cyan: #67e8f9;
+  --csa-bg: #f5f7fb;
+  --csa-surface: #ffffff;
+  --csa-text: #172033;
+  --csa-muted: #64748b;
+  --csa-border: #e2e8f0;
+  --csa-low: #16a34a;
+  --csa-medium: #d97706;
+  --csa-high: #dc2626;
+  --csa-radius: 14px;
+  --csa-radius-sm: 9px;
+  --csa-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.05);
+}
+
+/* ---------- Application chrome (light, low-risk adjustments) ---------- */
+
+.stApp {
+  background: var(--csa-bg);
+}
+
+html, body, [class*="css"] {
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--csa-text);
+}
+
+.block-container {
+  padding-top: 1.6rem;
+  padding-bottom: 3rem;
+  max-width: 1280px;
+}
+
+[data-testid="stSidebar"] {
+  background: var(--csa-navy);
+  border-right: none;
+}
+
+[data-testid="stSidebar"] * {
+  color: #e2e8f0;
+}
+
+[data-testid="stSidebarNav"] a {
+  border-radius: var(--csa-radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.35rem 0.55rem;
+}
+
+[data-testid="stSidebarNav"] a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-testid="stSidebarNav"] a[aria-current="page"] {
+  background: var(--csa-indigo);
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+[data-testid="stSidebar"] .stButton > button {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e2e8f0;
+}
+
+.stButton > button {
+  border-radius: var(--csa-radius-sm);
+  border: 1px solid var(--csa-border);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45rem 1rem;
+  transition: transform 0.06s ease, box-shadow 0.15s ease;
+}
+
+.stButton > button:hover {
+  box-shadow: var(--csa-shadow);
+}
+
+.stButton > button:focus-visible,
+.stDownloadButton > button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--csa-blue);
+  outline-offset: 2px;
+}
+
+.stButton > button[kind="primary"],
+.stDownloadButton > button[kind="primary"] {
+  background: var(--csa-indigo);
+  border-color: var(--csa-indigo);
+  color: #ffffff;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stDownloadButton > button[kind="primary"]:hover {
+  background: #4338ca;
+  border-color: #4338ca;
+}
+
+.stDownloadButton > button {
+  border-radius: var(--csa-radius-sm);
+  font-weight: 600;
+  border: 1px solid var(--csa-border);
+}
+
+[data-testid="stForm"],
+[data-testid="stExpander"] {
+  border-radius: var(--csa-radius);
+  border: 1px solid var(--csa-border) !important;
+  background: var(--csa-surface);
+}
+
+[data-testid="stDataFrame"],
+[data-testid="stTable"] {
+  border-radius: var(--csa-radius-sm);
+}
+
+[data-testid="stMetricValue"] {
+  color: var(--csa-navy);
+  font-weight: 700;
+}
+
+/* ---------- Brand bar ---------- */
+
+.csa-brandbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(96deg, var(--csa-navy) 0%, var(--csa-navy-2) 62%, #1e3a8a 100%);
+  border-radius: var(--csa-radius);
+  box-shadow: var(--csa-shadow);
+  margin-bottom: 1.4rem;
+}
+
+.csa-brandmark {
+  height: 44px;
+  width: 44px;
+  flex: 0 0 44px;
+}
+
+.csa-brandtext { display: flex; flex-direction: column; gap: 0.1rem; }
+
+.csa-wordmark {
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.csa-brandtag {
+  font-size: 0.78rem;
+  color: #a9b8d8;
+  letter-spacing: 0.01em;
+}
+
+.csa-brandmeta {
+  margin-left: auto;
+  text-align: right;
+  font-size: 0.72rem;
+  color: #cdd8ee;
+  line-height: 1.45;
+}
+
+.csa-brandmeta strong { color: #ffffff; font-weight: 600; }
+
+/* ---------- Page heading ---------- */
+
+.csa-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--csa-indigo);
+  margin-bottom: 0.25rem;
+}
+
+.csa-pagetitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--csa-navy);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.csa-pagesub {
+  font-size: 0.94rem;
+  color: var(--csa-muted);
+  margin: 0.35rem 0 1.1rem 0;
+  max-width: 76ch;
+  line-height: 1.55;
+}
+
+/* ---------- KPI cards ---------- */
+
+.csa-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1.2rem;
+}
+
+.csa-kpi {
+  background: var(--csa-surface);
+  border: 1px solid var(--csa-border);
+  border-radius: var(--csa-radius);
+  padding: 0.95rem 1rem;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+  border-left: 3px solid var(--csa-indigo);
+}
+
+.csa-kpi.is-low { border-left-color: var(--csa-low); }
+.csa-kpi.is-medium { border-left-color: var(--csa-medium); }
+.csa-kpi.is-high { border-left-color: var(--csa-high); }
+.csa-kpi.is-neutral { border-left-color: var(--csa-blue); }
+
+.csa-kpi-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--csa-muted);
+  margin-bottom: 0.3rem;
+}
+
+.csa-kpi-value {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--csa-navy);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.csa-kpi-help {
+  font-size: 0.74rem;
+  color: var(--csa-muted);
+  margin-top: 0.3rem;
+  line-height: 1.42;
+}
+
+/* ---------- Cards / sections ---------- */
+
+.csa-card {
+  background: var(--csa-surface);
+  border: 1px solid var(--csa-border);
+  border-radius: var(--csa-radius);
+  padding: 1.05rem 1.15rem;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+  margin-bottom: 1rem;
+}
+
+.csa-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--csa-navy);
+  margin: 0 0 0.35rem 0;
+}
+
+.csa-card-body { font-size: 0.9rem; color: var(--csa-text); line-height: 1.6; }
+.csa-card-body p { margin: 0 0 0.55rem 0; }
+
+.csa-section {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--csa-navy);
+  margin: 1.5rem 0 0.2rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--csa-border);
+}
+
+.csa-section-sub {
+  font-size: 0.85rem;
+  color: var(--csa-muted);
+  margin-bottom: 0.9rem;
+}
+
+/* ---------- Risk badges and chips ---------- */
+
+.csa-badge {
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.csa-badge.low { background: var(--csa-low); }
+.csa-badge.medium { background: var(--csa-medium); }
+.csa-badge.high { background: var(--csa-high); }
+.csa-badge.neutral { background: var(--csa-muted); }
+
+.csa-chip {
+  display: inline-block;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--csa-border);
+  margin-right: 0.35rem;
+}
+
+.csa-chip.ok { color: #15803d; background: #f0fdf4; border-color: #bbf7d0; }
+.csa-chip.missing { color: #b45309; background: #fffbeb; border-color: #fde68a; }
+.csa-chip.info { color: #1d4ed8; background: #eff6ff; border-color: #bfdbfe; }
+
+/* ---------- Notices ---------- */
+
+.csa-notice {
+  border-radius: var(--csa-radius-sm);
+  padding: 0.8rem 0.95rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0.7rem 0;
+  border-left: 4px solid var(--csa-blue);
+  background: #eff6ff;
+  color: #16305c;
+}
+
+.csa-notice.warning { border-left-color: var(--csa-medium); background: #fffbeb; color: #7a4a06; }
+.csa-notice.danger { border-left-color: var(--csa-high); background: #fef2f2; color: #7f1d1d; }
+.csa-notice.success { border-left-color: var(--csa-low); background: #f0fdf4; color: #14532d; }
+.csa-notice strong { font-weight: 700; }
+
+/* ---------- Empty state ---------- */
+
+.csa-empty {
+  text-align: center;
+  padding: 2.6rem 1.5rem;
+  background: var(--csa-surface);
+  border: 1px dashed var(--csa-border);
+  border-radius: var(--csa-radius);
+}
+
+.csa-empty-icon { font-size: 1.6rem; color: var(--csa-indigo); }
+.csa-empty-title {
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--csa-navy);
+  margin: 0.5rem 0 0.3rem 0;
+}
+.csa-empty-text {
+  font-size: 0.88rem;
+  color: var(--csa-muted);
+  max-width: 60ch;
+  margin: 0 auto 0.4rem auto;
+  line-height: 1.55;
+}
+
+/* ---------- Progress / risk meter ---------- */
+
+.csa-meter {
+  position: relative;
+  height: 12px;
+  border-radius: 999px;
+  background: #eef2f7;
+  overflow: hidden;
+  border: 1px solid var(--csa-border);
+  margin: 0.6rem 0 0.35rem 0;
+}
+
+.csa-meter-fill { height: 100%; border-radius: 999px; }
+
+.csa-meter-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--csa-muted);
+}
+
+/* ---------- Small helpers ---------- */
+
+.csa-muted { color: var(--csa-muted); font-size: 0.8rem; }
+.csa-mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 0.82rem; }
+.csa-hr { height: 1px; background: var(--csa-border); margin: 1.3rem 0; border: 0; }
+.csa-quote {
+  border-left: 3px solid var(--csa-indigo);
+  padding: 0.15rem 0 0.15rem 0.85rem;
+  color: var(--csa-navy-2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.csa-footer {
+  margin-top: 2.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--csa-border);
+  font-size: 0.74rem;
+  color: var(--csa-muted);
+  line-height: 1.55;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 992px) {
+  .csa-brandmeta { display: none; }
+  .csa-pagetitle { font-size: 1.5rem; }
+}
+
+@media (max-width: 700px) {
+  .block-container { padding-left: 1rem; padding-right: 1rem; }
+  .csa-kpi-grid { grid-template-columns: 1fr 1fr; }
+  .csa-brandbar { flex-wrap: wrap; gap: 0.6rem; }
+  .csa-kpi-value { font-size: 1.3rem; }
+}

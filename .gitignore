@@ -1,0 +1,41 @@
+# CreditSense AI - ignore rules
+#
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local database (never commit assessment records)
+database/*.db
+database/*.db-wal
+database/*.db-shm
+database/*.sqlite
+database/*.sqlite3
+
+# Generated model artifacts: reproducible with `python -m src.train_model`
+# and far too large to version.
+artifacts/model/*.joblib
+artifacts/model/*.pkl
+artifacts/metrics/*.json
+artifacts/metadata/*.json
+
+# Logs and runtime output
+.logs/
+*.log
+.git.freebuff-backup
